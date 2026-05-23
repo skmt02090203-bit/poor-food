@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>節約メニューアプリ</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#ffb6c1">
+
+<!-- iPhone用 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="節約メニュー">
+
+<link rel="apple-touch-icon" href="icon-192.png">
+
+</head>
+
+
+<body>
+
+  <div id="heart-container"></div>
+
+  <h1>節約メニューアプリ</h1>
+
+  <button onclick="toggleDarkMode()">
+  🌙 ダークモード
+</button>
+
+  <input type="number" id="budget" placeholder="予算を入力">
+
+  <input
+  type="text"
+  id="searchInput"
+  placeholder="メニュー名を検索"
+>
+
+<button onclick="searchMenu()">
+  🔍 検索
+</button>
+
+  <input
+    type="text"
+    id="ingredient"
+    placeholder="食材を入力"
+  >
+
+  <button onclick="suggestMenu()">
+    メニューを見る
+  </button>
+
+
+
+  <h2>冷蔵庫の食材</h2>
+
+ 
+<input
+  type="text"
+  id="fridge-input"
+  placeholder="食材を追加"
+>
+
+<button onclick="addFridgeItem()">
+  追加
+</button>
+
+<div id="fridge-list"></div>
+
+ <button onclick="suggestFromFridge()">
+  🥬 冷蔵庫から探す
+</button>
+
+<h2>冷蔵庫の食材で作れる料理</h2>
+
+<div id="suggested-menus"></div>
+
+<h2>🛍 買い物リスト</h2>
+
+<div id="shopping-list"></div>
+
+
+
+  <button onclick="showRandomMenu()">
+  🎲 今日の献立
+</button>
+
+
+<button onclick="sortByLikes()">
+  ❤️ 人気順
+</button>
+
+<select id="sortSelect">
+  <option value="new">新着順</option>
+  <option value="like">いいね順</option>
+  <option value="cheap">安い順</option>
+</select>
+
+  <div id="result"></div>
+
+  <div id="random-result"></div>
+
+  <button onclick="showRanking()">
+  👑 人気ランキング
+</button>
+
+<div id="ranking"></div>
+
+
+  <h2>お気に入り</h2>
+
+  <div id="favorite"></div>
+
+  <img src="curry.jpg">
+
+  <!-- ログイン -->
+  <div class="auth-box">
+
+    <h2>ログイン</h2>
+
+    <input
+      type="email"
+      id="email"
+      placeholder="メールアドレス"
+    >
+
+    <input
+      type="password"
+      id="password"
+      placeholder="パスワード"
+    >
+
+    <button id="register-btn">
+      新規登録
+    </button>
+
+    <button id="login-btn">
+      ログイン
+    </button>
+
+    <button id="logout-btn">
+      ログアウト
+    </button>
+
+    <p id="user-info">
+      ログアウト中
+    </p>
+
+  </div>
+
+  <!-- Firestore -->
+  <button id="save-favorite-btn">
+    お気に入り保存
+  </button>
+
+  <ul id="favorite-list"></ul>
+
+  <!-- JavaScript -->
+  <script type="module" src="firebase.js"></script>
+
+  <script type="module" src="script.js"></script>
+
+
+
+
+
+
+<h2>🍳 メニュー投稿</h2>
+
+<input
+  type="text"
+  id="new-menu-name"
+  placeholder="メニュー名"
+>
+
+<input
+  type="number"
+  id="new-menu-price"
+  placeholder="値段"
+>
+
+<input
+  type="text"
+  id="new-menu-image"
+  placeholder="画像URL"
+>
+
+<input
+  type="text"
+  id="new-menu-ingredients"
+  placeholder="食材（スペース区切り）"
+>
+
+<button onclick="addMenu()">
+  投稿する
+</button>
+
+
+<button id="notifyBtn">
+  通知ON
+</button>
+
+
+
+</body>
+
+
+
+</html>
+
